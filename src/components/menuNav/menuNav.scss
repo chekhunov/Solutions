@@ -1,0 +1,43 @@
+@import '../../assets/scss/vars';
+.menu {
+  background-color: transparent;
+  &__link {
+    &.active {
+      a {
+        color: $active !important;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  border: 0 !important;
+  background-color: #fff !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+.dropdown-toggle {
+  display: contents !important;
+}
+
+.dropdown-item {
+  color: $default !important;
+}
+
+.navbar-light .navbar-nav .show > .nav-link {
+  color: $title !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: $accent !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.active.nav-link {
+  color: $active !important;
+}

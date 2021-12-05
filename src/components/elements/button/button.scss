@@ -1,0 +1,37 @@
+@import '../../../assets/scss/vars';
+
+.button {
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  min-width: 95px;
+  max-width: 95px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: $title;
+  cursor: pointer;
+  background-blend-mode: overlay;
+  box-shadow: 0 0 0 1px $title inset, -4px 4px 0 -1px rgb(255, 255, 255), -4px 4px 0 0px $title;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $title inset, 0px 0px 0 -1px rgb(255, 255, 255), 0px 0px 0 0px $title;
+    transition: box-shadow 0.1s;
+  }
+
+  &.active {
+    color: $activeBtn !important;
+    box-shadow: 0 0 0 1px $title inset, 0px 0px 0 -1px rgb(255, 255, 255), 0px 0px 0 0px $title;
+    transition: box-shadow 0.1s color 0.3s;
+  }
+}
+
+.form {
+  .button {
+    position: relative;
+    margin: 0 auto;
+  }
+}

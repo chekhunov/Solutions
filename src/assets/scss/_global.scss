@@ -1,0 +1,245 @@
+@import 'mixins';
+@import 'vars';
+
+html,
+body {
+  min-width: 320px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: $default;
+  @extend %montserrat-400;
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #ffffff 0%, #e6edfa 100%);
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 472px;
+    height: 558px;
+    top: 35px;
+    right: -236px;
+    background: linear-gradient(267.33deg, #018fde 19.54%, #072e44 123.71%);
+    opacity: 14%;
+    filter: blur(250px);
+    transform: rotate(-52.45deg);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 570px;
+    height: 362px;
+    top: 178px;
+    left: -332px;
+    background: linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
+    opacity: 0.14;
+    filter: blur(250px);
+    transform: rotate(-150deg);
+  }
+}
+
+.container {
+  max-width: 1362px;
+  margin: 0 auto;
+  padding: 0 25px;
+
+  @include _767 {
+    padding: 0 15px;
+  }
+}
+
+.main {
+  // height: calc(100vh - 155px);
+  flex-grow: 1;
+}
+
+a,
+button {
+  display: block;
+  outline: transparent;
+  cursor: pointer;
+}
+
+.title {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: $title;
+  text-align: left;
+}
+
+.disable {
+  background-color: #e8e8e8;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  transition: color 0.3s, border-color 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.link {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 0;
+}
+
+.poppupActive.link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  .card {
+    align-items: center;
+  }
+
+  .buy-btn {
+    display: none;
+  }
+}
+
+.row-hidden-one {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  display: -webkit-box;
+  line-clamp: 2;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.underline {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none !important;
+
+  &::before {
+    position: absolute;
+    content: '_____________________________________________________________________';
+    width: 0;
+    overflow: hidden;
+    height: calc(100% + 3px);
+    bottom: -3px;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: none !important;
+
+    &::before {
+      width: 100%;
+      transition: width 0.3s;
+    }
+  }
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+.wp {
+  white-space: nowrap;
+}
+
+.textarea {
+  .label-name {
+    top: 15px;
+  }
+
+  &.active {
+    textarea {
+      background-color: #fff;
+      border: 1px solid $default;
+      transition: background-color 0.3s, border 0.3s;
+    }
+  }
+}
+
+.label-name.active {
+  display: inline-flex;
+  transform: scale(0.8);
+  top: -10px;
+  left: 0;
+  margin-left: 0;
+  padding: 0 5px;
+  transition: transform 0.3s;
+}
+
+.label {
+  position: relative;
+  .label-name {
+    position: absolute;
+    margin-left: 16px;
+  }
+  &.active {
+    background-color: #fff;
+
+    span {
+      background-color: #fff;
+    }
+
+    .label-name {
+      display: inline-flex;
+      transform: scale(0.8);
+      top: -10px;
+      left: 15px;
+      margin-left: 0;
+      padding: 0 5px;
+      transition: transform 0.3s;
+    }
+
+    .input {
+      border: 1px solid $default;
+      transition: border 0.3s;
+    }
+
+    input {
+      background: #fff;
+      &::placeholder {
+        background: #fff;
+      }
+
+      &:-internal-autofill-selected {
+        background-color: #fff !important;
+      }
+    }
+  }
+}

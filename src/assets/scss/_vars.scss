@@ -1,0 +1,33 @@
+$default: #8792a7;
+$title: #121212;
+$accent: #121212;
+$hover: #4bcfa0;
+$activeBtn: #8792a7;
+$active: #018fde;
+
+%montserrat-400 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+%montserrat-500 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+%montserrat-600 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+%montserrat-800 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}

@@ -1,0 +1,139 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/vars';
+
+.section {
+  padding: 70px 22% 74px;
+  background-color: #fff;
+  @include _450 {
+    width: 100%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include _450 {
+    width: 100%;
+  }
+}
+
+.title {
+  margin-bottom: 50px;
+  font-size: 32px;
+  color: $title;
+  @extend %montserrat-600;
+
+  @include _450 {
+    font-size: 28px;
+  }
+
+  span {
+    color: $active;
+  }
+}
+
+.label {
+  position: relative;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  @include _450 {
+    width: 100%;
+  }
+
+  &:hover {
+    input {
+      background: #fff;
+      transition: background 0.3s;
+    }
+  }
+}
+
+input {
+  height: 100%;
+  flex-grow: 1;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  padding: 8px 16px;
+  background: #eef3fc;
+  outline: none;
+  transition: background 0.3s;
+  cursor: pointer;
+
+  &::placeholder {
+    background-color: #eef3fc;
+    transition: background-color 0.3s;
+    height: 100%;
+    padding: 12px 0;
+    margin: 0;
+    transition: background-color 0.3s;
+  }
+}
+
+.message {
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 24px;
+  padding: 16px 16px;
+  background-color: #eef3fc;
+  border: 1px solid #eef3fc;
+  transition: background-color 0.3s border 0.3s;
+  outline: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  &::placeholder {
+    background-color: #eef3fc;
+    transition: background-color 0.3s;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border-color: $default;
+    transition: background-color 0.3s border-color 0.3s;
+
+    &::placeholder {
+      background-color: #fff;
+      transition: background-color 0.3s;
+    }
+  }
+}
+
+.textarea {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eef3fc;
+  border: 1px solid #eef3fc;
+  transition: background-color 0.3s border 0.3s;
+
+  @include _450 {
+    max-width: 100%;
+  }
+
+  &:hover {
+    background-color: #fff;
+    background: #fff;
+    border-color: $default;
+    transition: background-color 0.3s background 03s, border-color 0.3s;
+
+    input {
+      &::placeholder {
+        background-color: #fff;
+        background: #fff;
+        transition: background-color 0.3s background 03s;
+      }
+    }
+  }
+}
