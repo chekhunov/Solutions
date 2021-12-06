@@ -1,12 +1,30 @@
 @import '../../assets/scss/vars';
+@import '../../assets/scss/mixins';
 .contact {
   padding-top: 80px;
+
+  @include _1024 {
+    padding-top: 90px;
+  }
+
+  @include _767 {
+    padding-top: 50px;
+  }
+
   &__top {
     position: relative;
     margin-bottom: 120px;
     padding: 40px;
-    // box-shadow: -20px 20px 0 5px #fff, 20px -20px 0 5px #fff, 20px 20px 0 -20px $title,
-    //   0 0 0 1px $title;
+
+    @include _1024 {
+      margin-bottom: 90px;
+    }
+
+    @include _767 {
+      margin-bottom: 60px;
+      padding: 0;
+    }
+
     .left,
     .right {
       position: absolute;
@@ -30,7 +48,18 @@
     color: $title;
     font-size: 56px;
     text-align: center;
-    @extend %montserrat-800;
+    @extend%montserrat-800;
+
+    @include _1024 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    @include _767 {
+      font-size: 32px;
+      max-width: 222px;
+      line-clamp: 3 !important;
+      -webkit-line-clamp: 3 !important;
+    }
   }
 
   &__subtitle {
@@ -38,15 +67,49 @@
     margin-bottom: 7px;
     font-size: 28px;
     color: $active;
-    @extend %montserrat-800;
+    @extend%montserrat-800;
+
+    @include _1024 {
+      font-size: 24px;
+    }
+
+    @include _767 {
+      max-width: 272px;
+      white-space: initial !important;
+      font-size: 20px;
+      display: -moz-box;
+      display: -webkit-box;
+      line-clamp: 2 !important;
+      box-orient: vertical;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp: 2 !important;
+      -webkit-box-orient: vertical;
+      text-align: center;
+    }
   }
 
   &__decor {
     margin-bottom: 16px;
+    margin-bottom: 24px;
+
+    svg {
+      @include _1024 {
+        max-width: 427px;
+        margin-bottom: 32px;
+      }
+      @include _767 {
+        max-width: 272px;
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__bottom {
     width: 100%;
+
+    @include _767 {
+      flex-direction: column;
+    }
   }
 
   &__bottom-text {
@@ -56,10 +119,21 @@
     font-size: 12px;
     color: #3d3d3d;
     line-height: 1.3;
-    @extend %montserrat-500;
+    @extend%montserrat-500;
+
+    @include _767 {
+      padding-top: 0;
+      margin-right: 0;
+      margin-bottom: 8px;
+      text-align: center;
+    }
   }
 
   &__form {
     margin-bottom: 120px;
+
+    @include _1024 {
+      margin-bottom: 100px;
+    }
   }
 }

@@ -1,19 +1,89 @@
+@import '../../assets/scss/vars';
+@import '../../assets/scss/mixins';
+
 .header {
   padding: 25px 65px;
+
+  @include _767 {
+    padding: 25px;
+    background-color: #fff;
+  }
   &__inner {
+    &:first-child {
+      @include _991 {
+        flex: 1;
+      }
+    }
     .logo {
+      position: relative;
       width: 110px;
       height: 32px;
       object-fit: cover;
+      z-index: 200;
+
+      @include _991 {
+        flex: 1;
+      }
+
+      @include _767 {
+        width: 70px;
+        height: 20px;
+      }
+    }
+    a {
+      @include _991 {
+        flex: 1;
+      }
     }
   }
 
-  .dropdown-toggle::after {
-    border-top: 0;
+  &__menu {
+    position: relative;
+    @include _991 {
+      width: 149px;
+      margin-left: 9px;
+      margin-right: -25px;
+      order: 3;
+    }
+  }
+
+  .fd.nav-item.dropdown {
+    display: flex;
+    align-items: center;
+    @include _991 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &.show {
+      .dropdown-toggle::after {
+        transform: rotate(-180deg);
+        transition: transform 0.3s;
+      }
+    }
+  }
+
+  .dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    padding: 0 !important;
+    border: 0 !important;
+    &::after {
+      font-family: 'icomoon';
+      content: '\e900' !important;
+      border-top: 0;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+    }
   }
 
   &__call {
     position: relative;
     margin-top: -2px;
+    z-index: 200;
+
+    @include _767 {
+      display: none;
+    }
   }
 }

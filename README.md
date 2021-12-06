@@ -1,4 +1,17 @@
-# Getting Started with Create React App
+# Short instructions and Started with Create React App
+
+## installation
+
+npm i
+
+## start project
+
+start node express server in port http://localhost:9999 <br>
+this server gets data form post http://localhost:9999/form <br>
+npm run server <br>
+<br>
+start project react in port localhost:3000 <br>
+npm start <br>
 
 ## Digital Solutions LLC
 

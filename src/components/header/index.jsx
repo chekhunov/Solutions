@@ -42,19 +42,24 @@ const menu = [
 
 function Header() {
   const [isActiveBtn, setIsActiveBtn] = useState(false);
+
   return (
     <div className="header">
       <div className="row">
-        <div className="header__inner d-flex justify-between align-center col-sm-12">
-          <Link to="/">
-            <img className="logo" src={logo} alt="logo company" />
-          </Link>
+        <div className="col-sm-12">
+          <div className="header__inner d-flex justify-between align-center">
+            <Link to="/">
+              <img className="logo" src={logo} alt="logo company" />
+            </Link>
 
-          <MenuNav menu={menu} />
+            <div className="header__menu">
+              <MenuNav menu={menu} />
+            </div>
 
-          <div className="header__call" onClick={() => setIsActiveBtn(!isActiveBtn)}>
-            <Button width={'95'} title={'Call us'} />
-            {isActiveBtn && <CallPoppup />}
+            <div className="header__call" onClick={() => setIsActiveBtn(!isActiveBtn)}>
+              <Button width={'95'} title={'Call us'} />
+              {isActiveBtn && <CallPoppup />}
+            </div>
           </div>
         </div>
       </div>

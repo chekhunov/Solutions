@@ -1,3 +1,129 @@
+@import '../../assets/scss/vars';
+@import '../../assets/scss/mixins';
 .footer {
-  height: 50px;
+  padding: 70px 9%;
+  font-size: 14px;
+  background-color: #121212;
+  color: #dbdbdb;
+
+  @include _1200 {
+    padding: 70px 10%;
+  }
+
+  @include _767 {
+    padding: 40px 9%;
+  }
+
+  &__logo {
+    width: 88px;
+    height: 32px;
+    object-fit: cover;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include _1024 {
+      flex-direction: column;
+    }
+  }
+
+  &__block {
+    width: calc(50% - 100px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include _1200 {
+      width: calc(50% - 50px);
+    }
+
+    @include _1024 {
+      width: 100%;
+      justify-content: flex-start;
+
+      &:not(:last-child) {
+        margin-bottom: 60px;
+      }
+    }
+
+    @include _767 {
+      flex-direction: column;
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__column {
+    @include _1024 {
+      &:not(:last-child) {
+        margin-right: 70px;
+      }
+    }
+
+    @include _767 {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include _1024 {
+      flex-direction: row !important;
+      margin-right: 70px;
+    }
+
+    @include _767 {
+      flex-direction: column !important;
+    }
+  }
+
+  &__title {
+    display: inline-flex;
+
+    @include _767 {
+      margin-bottom: 16px !important;
+    }
+  }
+
+  &__item {
+    margin-bottom: 16px;
+
+    a {
+      color: #dbdbdb;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #018fde !important;
+        transition: color 0.3s;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 20px;
+    @extend%montserrat-600;
+  }
+
+  &__lang {
+    width: 35px;
+    margin-right: 10px;
+    text-transform: uppercase;
+  }
+
+  .address {
+    width: 100%;
+    max-width: 95px;
+  }
+
+  .our-office {
+    width: 100%;
+    max-width: 171px;
+  }
 }

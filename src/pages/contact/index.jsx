@@ -7,7 +7,7 @@ function Contact() {
   return (
     <div className="contact">
       <div className="row d-flex justify-center">
-        <div className="contact__top d-flex flex-column align-center col-sm-8">
+        <div className="contact__top d-flex flex-column align-center col-md-8 col-sm-10 ">
           <div className="contact__title row-hidden">Lorem ipsum set ammet test-test</div>
 
           <div className="contact__subtitle row-hidden-one uppercase">

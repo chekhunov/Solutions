@@ -1,4 +1,5 @@
 @import '../../assets/scss/vars';
+@import '../../assets/scss/mixins';
 .menu {
   background-color: transparent;
   &__link {
@@ -15,6 +16,10 @@
   background-color: #fff !important;
   border-radius: 0 !important;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+.nav-link {
+  font-size: 14px;
 }
 
 .dropdown-toggle {
@@ -34,10 +39,212 @@
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .active.nav-link {
   color: $active !important;
+}
+
+.navbar-toggler {
+  border: 0 !important;
+  outline: none !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.menu-toggle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-toggle-title {
+  display: none;
+  margin-left: 16px;
+  font-size: 14px;
+  color: $title;
+  line-height: 2;
+  @extend%montserrat-500;
+
+  @include _991 {
+    display: inline-flex;
+    line-height: 0;
+  }
+  @include _767 {
+    display: none;
+  }
+}
+
+.navbar {
+  @include _1024 {
+    z-index: 20;
+  }
+}
+
+.navbar-toggler-icon {
+  position: relative;
+  background-image: none;
+  margin-right: 4px;
+  padding-right: 0px;
+  width: 0px !important;
+  height: 0px !important;
+  background-color: $title !important;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 3px;
+    top: -3px;
+    left: 0;
+    background-color: $title;
+    transform: rotate(-45deg);
+    transition: transform 0.3s;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: $title;
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+  }
+}
+
+.navbar-toggler {
+  padding-right: 32px !important;
+}
+
+.navbar-toggler.collapsed {
+  padding-right: 8px !important;
+  .navbar-toggler-icon {
+    position: relative;
+    background-image: none;
+    padding-right: 16px;
+    width: 24px !important;
+    height: 3px !important;
+    background-color: $title !important;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 28px;
+      height: 3px;
+      top: -9px;
+      left: 0;
+      background-color: $title;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 15px;
+      height: 3px;
+      bottom: -9px;
+      left: 0;
+      background-color: $title;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+    }
+  }
+}
+
+.navbar.navbar-expand-lg.navbar-light {
+  @include _991 {
+    position: absolute;
+    top: -22px;
+  }
+
+  @include _767 {
+    display: inline-flex;
+    display: -webkit-box;
+    width: 80px;
+    height: 50px;
+    top: -25px;
+    right: 0px;
+  }
+}
+.navbar-collapse {
+  @include _991 {
+    opacity: 0 !important;
+    transition: opacity 1s;
+  }
+}
+
+.navbar-collapse.collapse {
+  @include _991 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    background-color: #fff;
+    z-index: -1;
+    opacity: 0 !important;
+    transition: opacity 3s;
+  }
+  .me-auto .navbar-nav {
+    a {
+      @include _991 {
+        height: 0;
+        opacity: 0;
+        transition: opacity 2s;
+      }
+    }
+  }
+}
+
+.navbar-collapse.collapse.show {
+  @include _991 {
+    opacity: 1 !important;
+    transition: opacity 0.3s;
+  }
+
+  .me-auto.navbar-nav {
+    @include _991 {
+      padding: 165px 70px;
+      opacity: 1;
+    }
+    @include _767 {
+      padding: 90px 24px;
+    }
+
+    a {
+      @include _991 {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 26px;
+      }
+    }
+
+    .nav-link {
+      padding: 24px 0;
+      border-bottom: 1px solid #dbdbdb;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .dropdown-menu.show {
+      margin-left: 60px;
+      box-shadow: none;
+    }
+
+    .navbar-light.navbar-nav.show > .nav-link {
+      color: $active !important;
+    }
+  }
 }

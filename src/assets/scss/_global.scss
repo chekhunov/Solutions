@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   font-size: 16px;
   color: $default;
-  @extend %montserrat-400;
+  @extend%montserrat-400;
 }
 
 .body {
@@ -29,10 +29,25 @@ body {
     height: 558px;
     top: 35px;
     right: -236px;
-    background: linear-gradient(267.33deg, #018fde 19.54%, #072e44 123.71%);
+    background-color: #018fde;
+    background-image: -webkit-linear-gradient(
+      267.33deg,
+      rgba(1, 143, 222, 1) 19.54%,
+      #072e44 123.71%
+    );
+    background-image: -moz-linear-gradient(267.33deg, #018fde 19.54%, #072e44 123.71%);
+    background-image: -o-linear-gradient(267.33deg, #018fde 19.54%, #072e44 123.71%);
+    background-image: linear-gradient(267.33deg, rgba(1, 143, 222, 1) 19.54%, #072e44 123.71%);
+
     opacity: 14%;
     filter: blur(250px);
     transform: rotate(-52.45deg);
+    z-index: 0;
+
+    @include _1024 {
+      top: 15%;
+      right: 0;
+    }
   }
 
   &::after {
@@ -43,9 +58,20 @@ body {
     top: 178px;
     left: -332px;
     background: linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
+    background-image: linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
+    background: -moz-linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
+    background: -webkit-linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
+    background: -o-linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
+    background: -ms-linear-gradient(264.93deg, #072e44 9.13%, #1b3543 106.76%);
     opacity: 0.14;
     filter: blur(250px);
     transform: rotate(-150deg);
+    z-index: 0;
+
+    @include _1024 {
+      top: -100px;
+      left: -200px;
+    }
   }
 }
 
@@ -208,7 +234,19 @@ button {
   .label-name {
     position: absolute;
     margin-left: 16px;
+    z-index: 10;
   }
+
+  .label-phone {
+    opacity: 0;
+  }
+
+  .label-phone-num {
+    font-size: 14px;
+    margin-left: 8px;
+    z-index: 1;
+  }
+
   &.active {
     background-color: #fff;
 
@@ -243,3 +281,69 @@ button {
     }
   }
 }
+
+.input-phone {
+  background-color: transparent !important;
+  .icon-arr-poppup {
+    margin-left: 8px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+    &::before {
+      color: #121212;
+    }
+  }
+
+  &.active {
+    .icon-arr-poppup {
+      transform: rotate(-180deg);
+      transition: transform 0.3s;
+    }
+  }
+}
+
+.active-input-phone {
+  padding-left: 40px;
+}
+
+.poppup-country {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100px;
+  top: 50px;
+  left: 0;
+  background-color: #fff;
+  z-index: 50;
+  border: 1px solid #8792a7;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+// .logo {
+//   position: relative;
+//   display: inline-block;
+//   margin: 0 auto;
+//   font-size: 24px;
+//   text-align: center;
+//   color: $title;
+//   -webkit-text-stroke: 0.6px #000000;
+//   overflow: hidden;
+//   background: linear-gradient(to left, #fff, #fff 50%, black 50%);
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   background-size: 200% 100%;
+//   background-position: 0%;
+//   transition: background-position 275ms ease;
+//   text-decoration: none;
+//   z-index: 10;
+//   @extend%montserrat-500;
+//   &:hover {
+//     background-position: 100% 0%;
+//   }
+
+//   @include _1024 {
+//     font-size: 24px;
+//   }
+// }

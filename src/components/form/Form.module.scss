@@ -1,11 +1,28 @@
 @import '../../assets/scss/mixins';
 @import '../../assets/scss/vars';
+@import '../../assets/scss/mixins';
 
 .section {
+  position: relative;
   padding: 70px 22% 74px;
   background-color: #fff;
+
+  @include _1200 {
+    padding: 70px 10%;
+  }
+
+  @include _1024 {
+    padding: 40px 10%;
+  }
+
+  @include _767 {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 40px 15px;
+  }
+
   @include _450 {
-    width: 100%;
+    width: 88%;
   }
 }
 
@@ -25,7 +42,7 @@
   color: $title;
   @extend %montserrat-600;
 
-  @include _450 {
+  @include _1024 {
     font-size: 28px;
   }
 
@@ -41,8 +58,12 @@
   flex-direction: column;
   cursor: pointer;
 
+  @include _767 {
+    padding-left: 0;
+    padding-right: 0;
+  }
   @include _450 {
-    width: 100%;
+    // width: 100%;
   }
 
   &:hover {
@@ -109,6 +130,7 @@ input {
 }
 
 .input {
+  position: relative;
   width: 100%;
   height: 56px;
   display: flex;
@@ -120,6 +142,13 @@ input {
 
   @include _450 {
     max-width: 100%;
+  }
+
+  .inputNum {
+    padding-left: 16px;
+    width: 40px;
+    display: flex;
+    align-items: center;
   }
 
   &:hover {

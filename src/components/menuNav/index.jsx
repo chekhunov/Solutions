@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,6 +7,19 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import './menuNav.scss';
 function MenuNav({ menu }) {
+  const [isMobileMenu, setIsMobileMenu] = useState(false);
+
+  function clickMobileBtn() {
+    setIsMobileMenu(!isMobileMenu);
+  }
+
+  function clickLinkMenu() {
+    console.log('loh');
+    if (!isMobileMenu) {
+      document.getElementById('navbar-collapse').classList.remove('show');
+    }
+  }
+
   //subMenu
   function createdPoppupMenu(title, subItems) {
     return (
@@ -27,14 +40,17 @@ function MenuNav({ menu }) {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <div className="menu-toggle" onClick={() => clickMobileBtn}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <span className="menu-toggle-title">Menu</span>
+        </div>
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {menu &&
               menu.map((item, index) => {
                 return (
-                  <Link to={item.link}>
+                  <Link to={item.link} onClick={() => clickLinkMenu}>
                     <Nav.Link key={index} href={`#${item.link}`}>
                       {item.subItems ? createdPoppupMenu(item.title, item.subItems) : item.title}
                     </Nav.Link>

@@ -22,12 +22,6 @@
     transition: box-shadow 0.1s;
   }
 
-  &:active {
-    color: $activeBtn !important;
-    box-shadow: 0 0 0 1px $title inset, 0px 0px 0 -1px rgb(255, 255, 255), 0px 0px 0 0px $title;
-    transition: box-shadow 0.1s color 0.3s;
-  }
-
   &.active {
     color: $activeBtn !important;
     box-shadow: 0 0 0 1px $title inset, 0px 0px 0 -1px rgb(255, 255, 255), 0px 0px 0 0px $title;
@@ -39,5 +33,14 @@
   .button {
     position: relative;
     margin: 0 auto;
+  }
+}
+
+.buttonOrder {
+  border: 1px solid #121212;
+  &:active {
+    color: $activeBtn !important;
+    box-shadow: 0 0 0 1px $title inset, 0px 0px 0 -1px rgb(255, 255, 255), 0px 0px 0 0px $title;
+    transition: box-shadow 0.1s color 0.3s;
   }
 }
